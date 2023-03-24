@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="create-sell">
+    <form class="site-form" action="{% url 'sell:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Selling form</p>
+        {{form}}
+        <input type="hidden" name="book_slug" value="{{request.GET.slug}}">
+        <input type="submit" value="post">
+    </form>
+</div>
+{% endblock %}

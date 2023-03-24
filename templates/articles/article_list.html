@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Reviews</h1>
+<div class="articles">
+    {% for article in articles %}
+    <div class="article">
+        <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}} - {{article.book_author}}</a></h2>
+        <img src="{{ article.thumb.url }}">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

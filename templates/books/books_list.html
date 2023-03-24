@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Books</h1>
+<div class="books">
+    {% for books in books %}
+    <div class="books">
+        <h2><a href="{% url 'books:detail' slug=books.slug %}">{{books.title}}</a></h2>
+
+        <p>{{books.data}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

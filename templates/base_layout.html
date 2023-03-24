@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article list</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="wraapper">
+        <a href="{% url 'home' %}"><img src="{% static 'bookworm.jpg' %}"></a>
+    </div>
+
+<div class="topnav">
+  <a class="active" href="{% url 'home' %}">Home</a>
+  <a href="{% url 'books:list' %}">Books</a>
+  <a href="{% url 'articles:list' %}">Reviews</a>
+    <div class="topnav-right">
+     {% if user.is_authenticated %}
+        <p>Hello {{user}}</p>
+        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Loguot</button>
+        </form>
+    {% else %}
+    <a href="{% url 'accounts:login' %}">Login</a>
+    <a href="{% url 'accounts:signup' %}">Signup</a>
+    {% endif %}
+    </div>
+</div>
+
+<div style="padding-left:16px">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

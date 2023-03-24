@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="books-detail">
+  <div class="books">
+    <h2>{{books.title}}</h2>
+    <h3>{{books.book_author}}</h3>
+    <p>{{books.body}}</p>
+    <p>{{books.data}}</p>
+    <p type="hidden">{{books.slug}}</p>
+    <input type="hidden" value="">
+    <img src="{{ books.thumb.url }}">
+
+    <h2><a href="{% url 'sell:create' %}">hip hip</a></h2>
+
+  </div>
+</div>
+{% endblock %}
